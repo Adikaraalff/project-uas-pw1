@@ -67,31 +67,29 @@
                   <label for="recipient-name" class="col-form-label"
                     >No Hp:</label
                   >
-                  <input type="text" class="form-control" v-model="nohp" />
+                  <input type="number" class="form-control" v-model="nohp" />
                 </div>
                 <div class="mb-3">
                   <label
                     >Menu Makanan
-                    <select id="menu_makanan" name="menu_makanan">
+                    <select id="menu_makanan" name="menu_makanan" v-model="makanan">
                       <option value="" selected="selected">
                         Silahkan Dipilih
                       </option>
-                      <option value="ayam">Nasi Ayam</option>
-                      <option value="ikan">Nasi Ikan</option>
-                      <option value="kucing">Nasi Kucing</option>
+                      <option value="nasi ayam">Nasi Ayam</option>
+                      <option value="nasi ikan">Nasi Ikan</option>
+                      <option value="nasi kucing">Nasi Kucing</option>
                     </select>
                   </label>
                 </div>
                 <div class="mb-3">
                   <label
                     >Menu Minuman
-                    <select id="menu_minuman" name="menu_minuman">
-                      <option value="" selected="selected">
-                        Silahkan Dipilih
-                      </option>
-                      <option value="teh">Es Teh</option>
-                      <option value="jeruk">Es Jeruk</option>
-                      <option value="campah">Es Campah</option>
+                    <select id="menu_minuman" name="menu_minuman" v-model="minuman">
+                      <option selected="selected">Silahkan Dipilih</option>
+                      <option value="Es teh">Es Teh</option>
+                      <option value="Es jeruk">Es Jeruk</option>
+                      <option value="Es campah">Es Campah</option>
                     </select>
                   </label>
                 </div>
