@@ -20,7 +20,7 @@ let vm = new Vue({
           alat: this.alat
         };
         axios
-          .post("https://api-new1-adikaraalff.vercel.app/pembeli", _data)
+          .post("https://api-new1.vercel.app/pembeli", _data)
           .then((response) => {
             console.log(response);
             $("#exampleModal").modal("hide");
@@ -32,7 +32,7 @@ let vm = new Vue({
       },
       deletePembeli(_id) {
         axios
-          .delete("https://api-new1-adikaraalff.vercel.app/pembeli/"+ _id)
+          .delete("https://api-new1.vercel.app/pembeli/"+ _id)
           .then((response) => {
             this.getPembeli();
           })
@@ -41,7 +41,7 @@ let vm = new Vue({
           })
       },
       getPembeli() {
-        axios.get("https://api-new1-adikaraalff.vercel.app/pembeli").then((response) => {
+        axios.get("https://api-new1.vercel.app/pembeli").then((response) => {
           console.log(response);
           this.dataPembeli = response.data;
         });
