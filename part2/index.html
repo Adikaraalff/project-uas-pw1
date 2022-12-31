@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Kelontong</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="app" class="container">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Tambah Pesanan
+      </button>
+
+      <!-- modal #exampleModal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Tambah Pesanan
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label"
+                    >Nama Pembeli:</label
+                  >
+                  <input type="text" class="form-control" v-model="nama" />
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label"
+                    >Alamat Pembeli:</label
+                  >
+                  <textarea class="form-control" v-model="alamat"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label"
+                    >No Hp:</label
+                  >
+                  <input type="number" class="form-control" v-model="nohp" />
+                </div>
+                <div class="mb-3">
+                  <label
+                    >Alat
+                    <select
+                      id="menu_alat"
+                      name="menu_alat"
+                      v-model="alat"
+                    >
+                      <option value="" selected="selected">
+                        Silahkan Dipilih
+                      </option>
+                      <option value="Thumbler">Thumbler</option>
+                      <option value="Kotak Makan">Kotak Makan</option>
+                    </select>
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Tutup
+              </button>
+              <button
+                v-on:click="savePembeli"
+                type="button"
+                class="btn btn-primary"
+              >
+                Simpan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>No Hp</th>
+            <th>Alat Makan</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="data in dataPembeli">
+            <td>{{ data.nama }}</td>
+            <td>{{ data.alamat }}</td>
+            <td>{{ data.nohp }}</td>
+            <td>{{ data.alat }}</td>
+            <td>
+              <button
+                class="btn btn-danger"
+                v-on:click="deletePembeli(data._id)"
+              >
+                Hapus
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://docs.vuejs.id/js/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
