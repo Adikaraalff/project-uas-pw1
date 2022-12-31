@@ -16,8 +16,8 @@
 
   <body>
     <div id="app" class="container">
-        <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
 
       <button
         type="button"
@@ -71,12 +71,8 @@
                 </div>
                 <div class="mb-3">
                   <label
-                    >Alat
-                    <select
-                      id="menu_alat"
-                      name="menu_alat"
-                      v-model="alat"
-                    >
+                    >Alat Makan
+                    <select id="menu_alat" name="menu_alat" v-model="alat">
                       <option value="" selected="selected">
                         Silahkan Dipilih
                       </option>
