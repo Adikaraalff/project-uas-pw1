@@ -15,140 +15,433 @@
   </head>
 
   <body>
-    <div id="app" class="container">
-      <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
-
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Tambah Pesanan
-      </button>
-
-      <!-- modal #exampleModal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Tambah Pesanan
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label"
-                    >Nama Pembeli:</label
-                  >
-                  <input type="text" class="form-control" v-model="nama" />
-                </div>
-                <div class="mb-3">
-                  <label for="message-text" class="col-form-label"
-                    >Alamat Pembeli:</label
-                  >
-                  <textarea class="form-control" v-model="alamat"></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label"
-                    >No Hp:</label
-                  >
-                  <input type="number" class="form-control" v-model="nohp" />
-                </div>
-                <div class="mb-3">
-                  <label
-                    >Alat Makan
-                    <select id="menu_alat" name="menu_alat" v-model="alat">
-                      <option value="" selected="selected">
-                        Silahkan Dipilih
-                      </option>
-                      <option value="Thumbler">Thumbler</option>
-                      <option value="Kotak Makan">Kotak Makan</option>
-                    </select>
-                  </label>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Siang-Malam dan Toko Kelontong</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Alat Makan</a
               >
-                Tutup
-              </button>
-              <button
-                v-on:click="savePembeli"
-                type="button"
-                class="btn btn-primary"
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Makanan dan Minuman</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Butuh Alat Makan dan Minum?</h1>
+          <p class="lead fw-normal text-white-50 mb-0">Ayo Beli Disini!</p>
+        </div>
+      </div>
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div
+          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        >
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sale badge-->
+              <div
+                class="badge bg-dark text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
               >
-                Simpan
-              </button>
+                Sale
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://lzd-img-global.slatic.net/g/p/cd771591ee44b497e09f9c5670bca5db.jpg_720x720q80.jpg_.webp"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Kotak Makanan</h5>
+                  <p>Hitam</p>
+                  <!-- Product price-->
+                  <span class="text-muted text-decoration-line-through"
+                    >Rp. 150.000</span
+                  >
+                  Rp. 120.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sale badge-->
+              <div
+                class="badge bg-dark text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Sale
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://s-ecom.ottenstatic.com/original/612f429c623b8032246279.jpg"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Thumbler</h5>
+                  <p>Hitam</p>
+                  <!-- Product reviews-->
+                  <div
+                    class="d-flex justify-content-center small text-warning mb-2"
+                  >
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                  </div>
+                  <!-- Product price-->
+                  <span class="text-muted text-decoration-line-through"
+                    >Rp. 40.000</span
+                  >
+                  Rp. 35.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sold Badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://lzd-img-global.slatic.net/g/p/3718568ffb355a0760a5965acb6b6c34.jpg_720x720q80.jpg_.webp"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Set Alat Makan Korea Stainless</h5>
+                  <!-- Product price-->
+                  Rp. 50.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sold Badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://images.tokopedia.net/img/cache/700/VqbcmM/2021/12/10/84cf16d4-6681-4893-a975-eb93e1b89569.jpg"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Sumpit Kayu Jepang</h5>
+                  <!-- Product reviews-->
+                  <div
+                    class="d-flex justify-content-center small text-warning mb-2"
+                  >
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                  </div>
+                  <!-- Product price-->
+                  Rp. 70.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sold Badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://images.tokopedia.net/img/cache/700/hDjmkQ/2022/4/3/dc308704-fdec-455e-8007-06ee571f5e59.jpg"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Penjepit Grill Korea Stainless</h5>
+                  <!-- Product price-->
+                  Rp. 50.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sold Badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://cf.shopee.co.id/file/d7dd2038d71850356b8fd1203d978669"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Appetite Zayn Set</h5>
+                  <!-- Product price-->
+                  <span class="text-muted text-decoration-line-through"
+                    >Rp. 100.000</span
+                  >
+                  Rp. 95.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sale badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://images.tokopedia.net/img/cache/700/product-1/2019/2/22/4506904/4506904_931c222f-0e97-4422-8970-ddccb0736a22_700_700.jpg"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Sendok Soup</h5>
+                  <!-- Product reviews-->
+                  <div
+                    class="d-flex justify-content-center small text-warning mb-2"
+                  >
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                    <div class="bi-star-fill"></div>
+                  </div>
+                  <!-- Product price-->
+                  Rp.50.000
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Sale badge-->
+              <div
+                class="badge bg-danger text-white position-absolute"
+                style="top: 0.5rem; right: 0.5rem"
+              >
+                Habis
+              </div>
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="https://images.tokopedia.net/img/cache/700/VqbcmM/2021/8/24/2279de20-920a-4594-afc8-7c0583e43492.jpg"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">Pisau Butter</h5>
+                  <!-- Product price-->
+                  Rp. 30.000
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div id="app" class="container">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Tambah Pesanan
+        </button>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>No Hp</th>
-            <th>Alat Makan</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="data in dataPembeli">
-            <td>{{ data.nama }}</td>
-            <td>{{ data.alamat }}</td>
-            <td>{{ data.nohp }}</td>
-            <td>{{ data.alat }}</td>
-            <td>
-              <button
-                class="btn btn-danger"
-                v-on:click="deletePembeli(data._id)"
-              >
-                Hapus
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <!-- modal #exampleModal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Tambah Pesanan
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label"
+                      >Nama Pembeli:</label
+                    >
+                    <input type="text" class="form-control" v-model="nama" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label"
+                      >Alamat Pembeli:</label
+                    >
+                    <textarea class="form-control" v-model="alamat"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label"
+                      >No Hp:</label
+                    >
+                    <input type="number" class="form-control" v-model="nohp" />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      >Alat Makan
+                      <select id="menu_alat" name="menu_alat" v-model="alat">
+                        <option value="" selected="selected">
+                          Silahkan Dipilih
+                        </option>
+                        <option value="Thumbler">Thumbler</option>
+                        <option value="Kotak Makan">Kotak Makan</option>
+                      </select>
+                    </label>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Tutup
+                </button>
+                <button
+                  v-on:click="savePembeli"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Simpan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://docs.vuejs.id/js/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Alamat</th>
+              <th>No Hp</th>
+              <th>Alat Makan</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in dataPembeli">
+              <td>{{ data.nama }}</td>
+              <td>{{ data.alamat }}</td>
+              <td>{{ data.nohp }}</td>
+              <td>{{ data.alat }}</td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  v-on:click="deletePembeli(data._id)"
+                >
+                  Hapus
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://docs.vuejs.id/js/vue.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="index.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+        crossorigin="anonymous"
+      ></script>
+    </section>
   </body>
 </html>

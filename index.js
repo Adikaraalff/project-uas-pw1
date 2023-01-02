@@ -1,8 +1,6 @@
 let vm = new Vue({
   el: "#app",
   data: {
-    title: "Data API Pembeli",
-    description: "Data API dideploy di vercel.app",
     dataPembeli: null,
 
     nama: null,
